@@ -1,37 +1,32 @@
-import React from "react";
-import "./Dashboard.css";
-import Card from "./Card";
-const Dashboard = () => {
-  const data = [
-    { name: "John Doe", rollNumber: "1234" },
-    { name: "Jane Doe", rollNumber: "5678" },
-    { name: "Alice Smith", rollNumber: "9012" },
-    { name: "Bob Johnson", rollNumber: "3456" },
-    { name: "Emily Brown", rollNumber: "7890" },
-    { name: "Michael Wilson", rollNumber: "2345" },
-    { name: "Sarah Davis", rollNumber: "6789" },
-    { name: "David Martinez", rollNumber: "0123" },
+import React from 'react';
+
+const CompanyMetrics = () => {
+  const metricsData = [
+    { value: '$406,411.29', label: 'Total Revenue', color: 'text-green-500' },
+    { value: '$620', label: 'Total Jobs Avg' },
+    { value: '655', label: 'Tickets Created' },
+    { value: '735', label: 'Tickets Scheduled' },
+    { value: '$110,448.8', label: 'Outstanding Amount', color: 'text-red-500' },
+    { value: '105', label: 'Memberships Sold' },
+    { value: '436', label: 'Jobs Completed' },
+    { value: '65', label: 'Total Canceled' },
   ];
+
   return (
-    <>
-      <div className="app m-8">
-        <div className="row">
-          {data.slice(0, 4).map((item, index) => (
-            <Card key={index} name={item.name} rollNumber={item.rollNumber} />
-          ))}
-        </div>
-        <div className="row">
-          {data.slice(4, 8).map((item, index) => (
-            <Card
-              key={index + 4}
-              name={item.name}
-              rollNumber={item.rollNumber}
-            />
-          ))}
-        </div>
+    <div className="container mx-auto px-4 py-8 bg-gray-300 h-screen">
+      <h2 className="text-2xl font-bold mb-4">Company Metrics</h2>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
+        {metricsData.map((metric, index) => (
+          <div key={index} className="bg-white  shadow-md p-4 flex items-center border-l-8 border-green-500">
+            <div className="ml-4">
+              <p className={`text-xl font-semibold ${metric.color}`}>{metric.value}</p>
+              <p className="text-gray-900 font-semibold">{metric.label}</p>
+            </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
-export default Dashboard;
+export default CompanyMetrics;

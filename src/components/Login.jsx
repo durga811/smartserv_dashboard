@@ -99,13 +99,14 @@ const Login = () => {
             Log In
           </button>
           <div className="text-center text-sm text-gray-300">
-            {/* Aligning the "Forgot Password" link at the center */}
-            <div className="mb-4">
-              <a href="#" className="underline">
-                Forgot Password
-              </a>
+              {/* Aligning the "Forgot Password" link at the center */}
+              <div className="mb-4">
+                <a href="mailto:support@smartserv.io" className="underline">
+                  Forgot Password
+                </a>
+              </div>
             </div>
-          </div>
+
         </form>
       </div>
     </div>
