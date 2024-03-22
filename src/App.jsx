@@ -23,7 +23,7 @@ const App = () => {
         <Route
           exact
           path="/dashboard"
-          element={<PrivateRoute element={Dashboard} />}
+          element={<PrivateRoute element={<Dashboard/>} />}
         />
       </Routes>
     </Router>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import GridDemo from  './Charts';
+import {GridDemo1 ,GridDemo2} from  './Charts';
 
 const CompanyMetrics = () => {
   const metricsData = [
@@ -28,8 +28,8 @@ const CompanyMetrics = () => {
         ))}
       </div> 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-2 "'>
-         <GridDemo/>
-      <GridDemo/>
+         <GridDemo1/>
+      <GridDemo2/>
       </div>
      
     </div>

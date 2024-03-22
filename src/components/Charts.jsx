@@ -7,107 +7,67 @@ const chartSetting = {
       label: 'rainfall (mm)',
     },
   ],
-  width: 500,
-  height: 400,
+  width: 380,
+  height: 320,
 };
 const dataset = [
   {
-    london: 59,
-    paris: 57,
-    newYork: 86,
-    seoul: 21,
-    month: 'Jan',
+    jobType:'service plumbing',
+    RevenueByJob:200000,
+    RevenueByLocn: 81000,
+    place: 'Kolkata',
   },
   {
-    london: 50,
-    paris: 52,
-    newYork: 78,
-    seoul: 28,
-    month: 'Fev',
-  },
-  {
-    london: 47,
-    paris: 53,
-    newYork: 106,
-    seoul: 41,
-    month: 'Mar',
-  },
-  {
-    london: 54,
-    paris: 56,
-    newYork: 92,
-    seoul: 73,
-    month: 'Apr',
-  },
-  {
-    london: 57,
-    paris: 69,
-    newYork: 92,
-    seoul: 99,
-    month: 'May',
-  },
-  {
-    london: 60,
-    paris: 63,
-    newYork: 103,
-    seoul: 144,
-    month: 'June',
-  },
-  {
-    london: 59,
-    paris: 60,
-    newYork: 105,
-    seoul: 319,
-    month: 'July',
-  },
-  {
-    london: 65,
-    paris: 60,
-    newYork: 106,
-    seoul: 249,
-    month: 'Aug',
-  },
-  {
-    london: 51,
-    paris: 51,
-    newYork: 95,
-    seoul: 131,
-    month: 'Sept',
-  },
-  {
-    london: 60,
-    paris: 65,
-    newYork: 97,
-    seoul: 55,
-    month: 'Oct',
-  },
-  {
-    london: 67,
-    paris: 64,
-    newYork: 76,
-    seoul: 48,
-    month: 'Nov',
-  },
-  {
-    london: 61,
-    paris: 70,
-    newYork: 103,
-    seoul: 25,
-    month: 'Dec',
+    jobType:'bid work',
+    RevenueByJob:130000,
+    RevenueByLocn: 61000,
+    place: 'Delhi',
+  },{
+    jobType:' Service HVAC',
+    RevenueByJob:100000,
+    RevenueByLocn: 41000,
+    place: 'Bhubaneswar',
+  },{
+    jobType:'SWE',
+    RevenueByJob:850000,
+    RevenueByLocn: 31000,
+    place: 'Bangalore',
+  },{
+    jobType:' Cloud Engineer',
+    RevenueByJob:70000,
+    RevenueByLocn: 21000,
+    place: 'Goa',
+  },{
+    jobType:'sales',
+    RevenueByJob:59000,
+    RevenueByLocn: 11000,
+    place: 'Ranchi',
   },
 ];
 
 const valueFormatter = (value) => `${value}mm`;
 
-export default function GridDemo() {
+export  function GridDemo1() {
   return (
     <BarChart
       dataset={dataset}
-      yAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-      series={[{ dataKey: 'seoul', label: 'Seoul rainfall', valueFormatter }]}
+      yAxis={[{ scaleType: 'band', dataKey: 'place' }]}
+      series={[{ dataKey: 'RevenueByLocn', label: 'Revenue By Job Location', valueFormatter }]}
       layout="horizontal"
       grid={{ vertical: true }}
       {...chartSetting}
     />
   );
 }
+export  function GridDemo2() {
+    return (
+      <BarChart
+        dataset={dataset}
+        yAxis={[{ scaleType: 'band', dataKey: 'jobType' }]}
+        series={[{ dataKey: 'RevenueByJob', label: 'Revenue By Job Type', valueFormatter }]}
+        layout="horizontal"
+        grid={{ vertical: true }}
+        {...chartSetting}
+      />
+    );
+  }
