@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
+import { Navigate } from 'react-router-dom'; 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [redirectToDashboard, setRedirectToDashboard] = useState(false); 
 
   const handleEmailChange = (e) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -47,17 +48,19 @@ const Login = () => {
           // Reset fields after submission
           setEmail("");
           setPassword("");
-          localStorage.setItem("isAuthenticated", "true");
-          window.location = "/dashboard";
+          
+          setRedirectToDashboard(true);
         } else {
-          //   setPasswordError("Invalid password");
+
           setEmail("");
           setPassword("");
         }
       }
     }
   };
-
+  if (redirectToDashboard) {
+    return <Navigate to="/dashboard" />; 
+  }
   return (
     <div className="bg-slate-900 min-h-screen p-4 flex justify-center items-center">
       <div className="bg-black p-8 sm:p-16 rounded-md max-w-md w-full">

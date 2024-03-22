@@ -4,11 +4,11 @@ import { BarChart } from '@mui/x-charts/BarChart';
 const chartSetting = {
   xAxis: [
     {
-      label: 'rainfall (mm)',
+      label: 'Revenue By November 2019 (mm)',
     },
   ],
-  width: 380,
-  height: 320,
+  width: 400,
+  height: 350,
 };
 const dataset = [
   {
@@ -29,7 +29,7 @@ const dataset = [
     place: 'Bhubaneswar',
   },{
     jobType:'SWE',
-    RevenueByJob:850000,
+    RevenueByJob:85000,
     RevenueByLocn: 31000,
     place: 'Bangalore',
   },{
@@ -49,7 +49,7 @@ const valueFormatter = (value) => `${value}mm`;
 
 export  function GridDemo1() {
   return (
-    <BarChart
+    <BarChart className='bg-white'
       dataset={dataset}
       yAxis={[{ scaleType: 'band', dataKey: 'place' }]}
       series={[{ dataKey: 'RevenueByLocn', label: 'Revenue By Job Location', valueFormatter }]}
@@ -61,7 +61,7 @@ export  function GridDemo1() {
 }
 export  function GridDemo2() {
     return (
-      <BarChart
+      <BarChart className='bg-white'
         dataset={dataset}
         yAxis={[{ scaleType: 'band', dataKey: 'jobType' }]}
         series={[{ dataKey: 'RevenueByJob', label: 'Revenue By Job Type', valueFormatter }]}
